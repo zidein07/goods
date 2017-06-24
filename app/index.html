@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!--<base href="/">-->
+    <meta charset="UTF-8">
+    <title>Very cool goods</title>
+    <!-- Our styles -->
+    <link rel="stylesheet" href="bower/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/dist/goods.css">
+</head>
+<body ng-app="goodsApp">
+<!-- This is our container :) -->
+<header-directive></header-directive>
+<div class="container">
+    <ui-view></ui-view>
+</div>
+<!-- We are including js files -->
+<script src="bower/angular/angular.min.js"></script>
+<script src="bower/angular-translate/angular-translate.min.js"></script>
+<script src="bower/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower/lodash/dist/lodash.min.js"></script>
+<script src="bower/jquery/dist/jquery.min.js"></script>
+<script src="bower/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="scripts/dist/all.js"></script>
+</body>
+</html>

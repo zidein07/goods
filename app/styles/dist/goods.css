@@ -1,0 +1,15 @@
+#header-language-select {
+  width: 140px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.button-in-collapse {
+  bottom: 1px;
+  position: relative;
+}
+.main-route-label {
+  margin-right: 10px;
+}
+.main-route-refresh-goods {
+  margin-top: 20px;
+}
