@@ -23,6 +23,9 @@ GoodsApp.factory('$storage', [function () {
     setItem: function (id, data) {
       localStorage.setItem(id, JSON.stringify(data));
     },
+    remove: function (id) {
+      this.setItem(id, null);
+    },
     getItem: function (id) {
       return JSON.parse(localStorage.getItem(id));
     }

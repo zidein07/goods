@@ -22,8 +22,9 @@
                 <div class="collaspe panel-body" ng-bind-html="loremTpl | trustHtml"></div>
             </div>
         </div>
-        <div class="text-center main-route-refresh-goods">
-            <button class="btn btn-success" ng-disabled="!ships.length">Обновить список</button>
+        <div class="text-center main-route-refresh-goods" ng-if="ships.length">
+            <button class="btn btn-success" ng-click="loadGoods()"
+                    translate="RELOAD_LIST"></button>
         </div>
     </div>
 </div>

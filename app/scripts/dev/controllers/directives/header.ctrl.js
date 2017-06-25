@@ -15,9 +15,11 @@ GoodsApp.controller('HeaderCtrl', ['$scope', '$translate', '$storage', '$rootSco
     // Поэтому отправляю просто событие, без данных и затем обновляю данные в контроллере
     // Была бы постоянная цена, сделал бы иначе, загружал со стореджа
     // Затем отправлял бы сюда название, и уже отталкивался от данных, которые имею
-    $scope.goods = $storage.getItem('ships');
+    $scope.goods = getGoodsFromStorage('ships');
   });
-  $scope.goods = $storage.getItem('ships');
+  $scope.goods = getGoodsFromStorage('ships');
+
+
   /**
    *
    * @param lang - type of languages {ru, en}
@@ -28,7 +30,17 @@ GoodsApp.controller('HeaderCtrl', ['$scope', '$translate', '$storage', '$rootSco
     if (!first) $storage.setItem('lang', lang)
   };
   $scope.setCurrentLang($scope.currentLang, true);
-  
+
+  /**
+   * get data from storage if null return empty array
+   * @param type
+   * @returns {Array}
+   */
+  function getGoodsFromStorage(type) {
+    var storageData = $storage.getItem(type);
+    return storageData ? storageData : [];
+  }
+
   /**
    * get current lang from localStorage and set
    * @returns {string}

@@ -1,12 +1,7 @@
 <div class="col-xs-12 col-lg-6 col-sm-6 col-sm-offset-3 col-lg-offset-3">
-    <div class="panel panel-success">
+    <div class="panel panel-info">
         <div class="panel-heading" translate="CART"></div>
-        <div ng-if="!goods.length" class="panel-body">
-            <p>
-                Ваша корзина пуста, но вы можете приобрести <b>космический корабль Люка Скайвокера</b> для этого
-                перейдите на эту <a ui-sref="goods">страницу</a>
-            </p>
-        </div>
+        <div ng-if="!goods.length" class="panel-body" ng-bind-html="('CART_EMPTY_DESCRIPTION'|translate) | trustHtml"></div>
         <table ng-if="goods.length" class="table">
             <thead>
             <tr>
@@ -30,12 +25,12 @@
             </tr>
             <tr class="table-bordered">
                 <th scope="row"></th>
-                <td class="col-xs-8 bold">Итого:</td>
+                <td class="col-xs-8 bold" translate="TOTAL"></td>
                 <td class="text-center col-xs-2">
                     <span class="label label-info" ng-bind="((goods | sum:'price') | number:2) + ' $'"></span>
                 </td>
                 <td>
-                    <button class="btn btn-xs btn-success">Заказать</button>
+                    <button class="btn btn-xs btn-success" ng-click="takeOrder()" translate="MAKE_ORDER"></button>
                 </td>
             </tr>
             </tbody>
