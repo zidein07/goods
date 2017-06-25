@@ -18,7 +18,8 @@ GoodsApp.config(['$translateProvider', function ($translateProvider) {
     'SEND': 'Send',
     // TODO: Можно обработать ui-sref с помощью $compile затем вывести с помощью trustAsHtml, но а пока оставим href
     'CART_EMPTY_DESCRIPTION': '<p>Your cart is empty, but you can buy <b>luke skywalker`s ship</b> redirect to this <a href="#/">page</a></p>',
-    'CONFIRM_AN_ORDER': 'Confirmation of an order'
+    'CONFIRM_AN_ORDER': 'Confirmation of an order',
+    'LOADING': 'Loading'
   }).translations('ru', {
     'PARSER_TITLE': 'Парсинг стены',
     'SHIPS': 'Космические корабли',
@@ -37,7 +38,8 @@ GoodsApp.config(['$translateProvider', function ($translateProvider) {
     'SEND': 'Отправить',
     // TODO: Можно обработать ui-sref с помощью $compile затем вывести с помощью trustAsHtml, но а пока оставим href
     'CART_EMPTY_DESCRIPTION': '<p>Ваша корзина пуста, но вы можете приобрести <b>космический корабль Люка Скайвокера</b> для этого перейдите на эту <a href="#/">страницу</a></p>',
-    'CONFIRM_AN_ORDER': 'Подтверждение заказа'
+    'CONFIRM_AN_ORDER': 'Подтверждение заказа',
+    'LOADING': 'Загрузка'
   }).registerAvailableLanguageKeys(['en', 'ru'], {
     'en_*': 'en',
     'ru_*': 'ru',

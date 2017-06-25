@@ -1,16 +1,26 @@
-GoodsApp.controller('GoodsCtrl', ['$scope', 'GoodsApiService', '$storage', '$rootScope', '$interval', function ($scope, GoodsApiService, $storage, $rootScope, $interval) {
-  $scope.loremTpl = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt distinctio dolorem dolorum eius harum in minus non nostrum pariatur, perspiciatis porro quasi, quos repellendus saepe tempore tenetur totam velit vitae?</p>';
+GoodsApp.controller('GoodsCtrl', ['$scope', 'GoodsApiService', '$storage', '$rootScope', '$interval', '$spinner', function ($scope, GoodsApiService, $storage, $rootScope, $interval, $spinner) {
   $scope.loadGoods = function () {
+    $spinner.show();
     $scope.ships = [];
     GoodsApiService.getGoods().then(function (goodsRes) {
+      $spinner.hide();
       if (goodsRes.hasNotResults()) return false;
       $scope.ships = handlerShips(goodsRes.getResults());
     });
   };
+
+  /**
+   * load data every 1m
+   */
   $interval(function () {
     $scope.loadGoods();
   }, 60000);
   $scope.loadGoods();
+
+  /**
+   * add data to cart
+   * @param good
+   */
   $scope.addToCart = function (good) {
     if (good.inCart) {
       $storage.removeItem('ships', good, 'name');
