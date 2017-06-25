@@ -1,4 +1,4 @@
-GoodsApp.controller('HeaderCtrl', ['$scope', '$translate', function ($scope, $translate) {
+GoodsApp.controller('HeaderCtrl', ['$scope', '$translate', '$storage', '$rootScope', function ($scope, $translate, $storage, $rootScope) {
   $scope.languages = [{
     "val": "ru",
     "lang": "Русский"
@@ -7,6 +7,17 @@ GoodsApp.controller('HeaderCtrl', ['$scope', '$translate', function ($scope, $tr
     "lang": "English"
   }];
   $scope.currentLang = getCurrentLang();
+  $rootScope.$on('cart', function () {
+    // Почему не сделал передачу данных через событие ?
+    // Было бы немного быстрее
+    // Но проблема в цене, она рандомная,
+    // Если будем передавать постоянно разные числа - будет ложная цена
+    // Поэтому отправляю просто событие, без данных и затем обновляю данные в контроллере
+    // Была бы постоянная цена, сделал бы иначе, загружал со стореджа
+    // Затем отправлял бы сюда название, и уже отталкивался от данных, которые имею
+    $scope.goods = $storage.getItem('ships');
+  });
+  $scope.goods = $storage.getItem('ships');
   /**
    *
    * @param lang - type of languages {ru, en}
@@ -14,7 +25,7 @@ GoodsApp.controller('HeaderCtrl', ['$scope', '$translate', function ($scope, $tr
    */
   $scope.setCurrentLang = function (lang, first) {
     $translate.use(lang);
-    if (!first) localStorage.setItem('lang', lang)
+    if (!first) $storage.setItem('lang', lang)
   };
   $scope.setCurrentLang($scope.currentLang, true);
   
@@ -23,7 +34,7 @@ GoodsApp.controller('HeaderCtrl', ['$scope', '$translate', function ($scope, $tr
    * @returns {string}
    */
   function getCurrentLang() {
-    var lang = localStorage.getItem('lang');
+    var lang = $storage.getItem('lang');
     return !lang ? 'ru' : lang;
   }
 }]);

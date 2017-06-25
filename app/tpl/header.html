@@ -11,17 +11,25 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-goods-page-example">
             <ul class="nav navbar-nav">
-                <li ui-sref-active="active"><a ui-sref="main" translate="SHIPS"></a></li>
+                <li ui-sref-active="active"><a ui-sref="goods" translate="SHIPS"></a></li>
                 <li ui-sref-active="active"><a ui-sref="about" translate="ABOUT"></a></li>
             </ul>
             <form class="navbar-form navbar-right">
                 <select class="form-control" id="header-language-select"
                         ng-options="option.val as option.lang for option in languages" ng-model="currentLang"
                         ng-change="setCurrentLang(currentLang)"></select>
-                <span class="btn btn-success pull-right">
-                    <span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                </span>
             </form>
+            <div class="navbar-right">
+                <span class="navbar-text">{{'PRICE' | translate}}:
+                    <span class="label label-info" ng-bind="((goods | sum:'price') | number:2) + ' $'"></span>
+                </span>
+                <span class="navbar-text">{{'GOODS' | translate}}:
+                    <span class="label label-info" ng-bind="goods.length"></span>
+                </span>
+                <a class="btn btn-success navbar-btn" ui-sref-active="active" ui-sref="cart">
+                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                </a>
+            </div>
         </div>
     </div>
 </nav>

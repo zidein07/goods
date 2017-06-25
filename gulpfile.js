@@ -11,7 +11,7 @@ var def = {
 
 var path = {
   less: './app/styles/dev/',
-  lessDist: './app/styles/dist',
+  lessDist: './app/styles/dist/',
   js: './app/scripts/dev/',
   jsDist: './app/scripts/dist/',
   tpl: './app/tpl/'
@@ -22,7 +22,7 @@ gulp.task('connect', [def.less, def.js], function () {
     port: 3000,
     logConnections: false,
     notify: false,
-    server: './app'
+    server: './app/'
   });
 
   gulp.watch([
@@ -45,7 +45,7 @@ gulp.task('connect', [def.less, def.js], function () {
 });
 
 gulp.task(def.less, function () {
-  return gulp.src(path.less + 'goods.less')
+  return gulp.src(path.less + 'main.less')
     .pipe(gulpLess())
     .pipe(gulp.dest(path.lessDist))
     .pipe(browserSync.stream());

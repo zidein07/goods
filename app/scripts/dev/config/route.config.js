@@ -1,5 +1,5 @@
 GoodsApp.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
-  $stateProvider.state('main', {
+  $stateProvider.state('goods', {
     url: '/',
     controller: 'GoodsCtrl',
     templateUrl: getRouteTemplate('goods')
@@ -7,11 +7,15 @@ GoodsApp.config(['$stateProvider', '$locationProvider', function ($stateProvider
     url: '/about',
     controller: 'AboutCtrl',
     templateUrl: getRouteTemplate('about')
+  }).state('cart', {
+    url: '/cart',
+    controller: 'CartCtrl',
+    templateUrl: getRouteTemplate('cart')
   });
 
   $locationProvider.hashPrefix('');
   $locationProvider.html5Mode({
-    enabled: true,
+    enabled: false,
     requireBase: false
   });
 

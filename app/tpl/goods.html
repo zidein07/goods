@@ -2,27 +2,28 @@
     <h2 class="text-center" translate="SHIPS"></h2>
     <div class="panel-group col-xs-12 col-lg-6 col-lg-offset-3" id="accordion" role="tablist"
          aria-multiselectable="true">
-        <div ng-repeat="good in goods track by $index" class="panel panel-default">
+        <div ng-repeat="ship in ships track by $index" class="panel panel-default">
             <div class="panel-heading" role="tab">
                 <span class="pull-right button-in-collapse">
-                    <button class="btn btn-xs btn-success glyphicon glyphicon-plus">
-                    </button>
+                    <button class="btn btn-xs glyphicon"
+                            ng-class="{'glyphicon-plus btn-success': !ship.inCart, 'glyphicon-remove btn-danger': ship.inCart}"
+                            ng-click="addToCart(ship)"></button>
                 </span>
                 <div class="pull-right main-route-label">
-                    <span class="label label-info">42.00 $</span>
+                    <span class="label label-info">{{ ship.price | number:2 }} $</span>
                 </div>
                 <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion"
                        aria-expanded="true" data-target="#good{{$index}}" aria-controls="collapseOne"
-                       ng-bind="good.name"></a>
+                       ng-bind="ship.name"></a>
                 </h4>
             </div>
             <div id="good{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body" ng-bind-html="loremTpl | trustHtml"></div>
+                <div class="collaspe panel-body" ng-bind-html="loremTpl | trustHtml"></div>
             </div>
         </div>
         <div class="text-center main-route-refresh-goods">
-            <button class="btn btn-success" ng-disabled="!goods.length">Обновить список</button>
+            <button class="btn btn-success" ng-disabled="!ships.length">Обновить список</button>
         </div>
     </div>
 </div>
