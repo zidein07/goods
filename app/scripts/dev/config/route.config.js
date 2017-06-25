@@ -1,4 +1,4 @@
-GoodsApp.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
+GoodsApp.config(['$stateProvider', '$locationProvider','$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider) {
   $stateProvider.state('cart', {
     url: '/cart',
     controller: 'CartCtrl',
@@ -10,17 +10,17 @@ GoodsApp.config(['$stateProvider', '$locationProvider', function ($stateProvider
   });
 
   $locationProvider.hashPrefix('');
-
   function getRouteTemplate(name) {
     var tpl = 'tpl/';
     return tpl + name + '.html'
   }
 
+  $urlRouterProvider.otherwise("/");
   /**
    *  For server and do not forgot inject locationProvider
    */
   // $locationProvider.html5Mode({
-  //   enabled: false,
+  //   enabled: true,
   //   requireBase: false
   // });
 }]);
