@@ -19,7 +19,7 @@
                 </h4>
             </div>
             <div id="good{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <div class="collaspe panel-body" ng-bind-html="loremTpl | trustHtml"></div>
+                <div class="collaspe panel-body" ng-bind-html="('DESCRIPTION_OF_SPACESHIP'|translate) | trustHtml"></div>
             </div>
         </div>
         <div class="text-center main-route-refresh-goods" ng-if="ships.length">
