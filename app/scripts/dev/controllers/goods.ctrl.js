@@ -12,10 +12,16 @@ GoodsApp.controller('GoodsCtrl', ['$scope', 'GoodsApiService', '$storage', '$roo
   /**
    * load data every 1m
    */
-  $interval(function () {
+  $scope.Timer = $interval(function () {
     $scope.loadGoods();
   }, 60000);
   $scope.loadGoods();
+
+  $scope.$on("$destroy",function(){
+    if (angular.isDefined($scope.Timer)) {
+      $interval.cancel($scope.Timer);
+    }
+  });
 
   /**
    * add data to cart
