@@ -27,7 +27,7 @@
 
 ## Дерево проекта
 ```
-|-- goods
+|-- app
     |-- index.html
     |-- bower
     |   | bower_components
