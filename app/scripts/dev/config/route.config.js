@@ -1,4 +1,4 @@
-GoodsApp.config(['$stateProvider', '$locationProvider','$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider) {
+GoodsApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider) {
   $stateProvider.state('cart', {
     url: '/cart',
     controller: 'CartCtrl',

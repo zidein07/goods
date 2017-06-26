@@ -41,11 +41,10 @@ GoodsApp.controller('GoodsCtrl', ['$scope', 'GoodsApiService', '$storage', '$roo
    */
   function handlerShips(res) {
     var goods = $storage.getItem('ships');
-    res = _.map(res, function (resItem) {
+    return _.map(res, function (resItem) {
       resItem.price = _.random(1000, 99999);
       resItem.inCart = _.some(goods, {name: resItem.name});
       return resItem
     });
-    return res;
   }
 }]);
