@@ -25,3 +25,63 @@
 Если это попап то здесь `./app/scripts/dev/controllers/popups`  
 Если это директива то здесь `./app/scripts/dev/controllers/directives`  
 
+## Дерево проекта
+```
+|-- goods
+    |-- index.html
+    |-- bower
+    |   | bower_components
+    |-- scripts
+    |   |-- dev
+    |   |   |-- app.js
+    |   |   |-- config
+    |   |   |   |-- route.config.js
+    |   |   |   |-- translate.config.js
+    |   |   |-- controllers
+    |   |   |   |-- cart.ctrl.js
+    |   |   |   |-- goods.ctrl.js
+    |   |   |   |-- directives
+    |   |   |   |   |-- header.ctrl.js
+    |   |   |   |-- popups
+    |   |   |       |-- cartItemRemove.ctrl.js
+    |   |   |       |-- cartOrder.ctrl.js
+    |   |   |-- directives
+    |   |   |   |-- header.directive.js
+    |   |   |   |-- spinner.directive.js
+    |   |   |-- filters
+    |   |   |   |-- sum.filter.js
+    |   |   |   |-- trustHtml.filter.js
+    |   |   |-- service
+    |   |       |-- goodsApi.service.js
+    |   |       |-- goodsApiResponse.service.js
+    |   |       |-- localStorage.service.js
+    |   |       |-- popup.service.js
+    |   |       |-- spinner.service.js
+    |   |-- dist
+    |       |-- all.js
+    |-- styles
+    |   |-- dev
+    |   |   |-- main.less
+    |   |   |-- base
+    |   |   |   |-- color.less
+    |   |   |   |-- properties.less
+    |   |   |   |-- spinner.less
+    |   |   |-- cart
+    |   |   |   |-- cart.less
+    |   |   |-- goods
+    |   |   |   |-- goods.less
+    |   |   |-- header
+    |   |       |-- header.less
+    |   |-- dist
+    |       |-- main.css
+    |-- tpl
+        |-- cart.html
+        |-- goods.html
+        |-- directives
+        |   |-- header.html
+        |   |-- spinner.html
+        |-- popups
+            |-- cart
+                |-- cart-item-remove.html
+                |-- cart-order.html
+```
