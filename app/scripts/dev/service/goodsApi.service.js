@@ -10,7 +10,7 @@ GoodsApp.factory('GoodsApiService',['$http', 'GoodsApiResponseService', function
     },
     getGoods: function (params) {
       return $http({
-        url: 'http://swapi.co/api/starships/',
+        url: 'https://swapi.co/api/starships/',
         method: 'GET',
         params: params
       }).then(starWarsApiHandler);
